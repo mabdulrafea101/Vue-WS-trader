@@ -65,7 +65,7 @@ const transactions = ref<Transaction[]>([
                   </li>
                 </ul>
               </td>
-              <td class="px-6 py-4">${{ transaction.total.toFixed(2) }}</td>
+              <td class="px-6 py-4">Rs.{{ transaction.total.toFixed(2) }}</td>
               <td class="px-6 py-4">{{ new Date(transaction.date).toLocaleString() }}</td>
               <td class="px-6 py-4">
                 <button class="text-primary hover:text-primary-hover">View Details</button>

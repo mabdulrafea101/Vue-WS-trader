@@ -55,7 +55,7 @@ onMounted(async () => {
           </div>
           <div class="ml-4">
             <h2 class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Sales</h2>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white">${{ stats.totalSales.toLocaleString() }}</p>
+            <p class="text-lg font-semibold text-gray-900 dark:text-white">Rs.{{ stats.totalSales.toLocaleString() }}</p>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ onMounted(async () => {
           </div>
           <div class="ml-4">
             <h2 class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Expenses</h2>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white">${{ stats.totalExpenses.toLocaleString() }}</p>
+            <p class="text-lg font-semibold text-gray-900 dark:text-white">Rs.{{ stats.totalExpenses.toLocaleString() }}</p>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ onMounted(async () => {
           </div>
           <div class="ml-4">
             <h2 class="text-sm font-medium text-gray-600 dark:text-gray-400">Profit</h2>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white">${{ stats.profit.toLocaleString() }}</p>
+            <p class="text-lg font-semibold text-gray-900 dark:text-white">Rs.{{ stats.profit.toLocaleString() }}</p>
           </div>
         </div>
       </div>

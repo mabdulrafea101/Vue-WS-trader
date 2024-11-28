@@ -34,7 +34,7 @@ const updateStock = (productId: number, newStock: number) => {
             <tr v-for="product in inventory" :key="product.id" class="border-b dark:border-gray-700">
               <td class="px-6 py-4">{{ product.name }}</td>
               <td class="px-6 py-4">{{ product.category }}</td>
-              <td class="px-6 py-4">${{ product.price.toFixed(2) }}</td>
+              <td class="px-6 py-4">Rs.{{ product.price.toFixed(2) }}</td>
               <td class="px-6 py-4">
                 <input
                   type="number"

@@ -175,7 +175,7 @@ const deleteProduct = (product: Product) => {
             <tr v-for="product in products" :key="product.id" class="border-b dark:border-gray-700">
               <td class="px-6 py-4">{{ product.name }}</td>
               <td class="px-6 py-4">{{ product.category }}</td>
-              <td class="px-6 py-4">${{ product.price.toFixed(2) }}</td>
+              <td class="px-6 py-4">Rs.{{ product.price.toFixed(2) }}</td>
               <td class="px-6 py-4">{{ product.stock }}</td>
               <td class="px-6 py-4">
                 <button @click="editProduct(product)" class="inline-flex items-center text-blue-500 hover:text-blue-800 mr-2">
