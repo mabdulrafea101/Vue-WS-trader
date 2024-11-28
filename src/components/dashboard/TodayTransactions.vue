@@ -47,8 +47,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import type { Transaction } from '@/types'
-import { useTransactionStore } from '@/stores/transaction'
+import type { Transaction } from '../../types'
+import { useTransactionStore } from '../../stores/transaction'
 
 const transactionStore = useTransactionStore()
 const transactions = ref<Transaction[]>([])
@@ -58,7 +58,7 @@ onMounted(async () => {
     await transactionStore.fetchTransactions()
     const today = new Date()
     today.setHours(0, 0, 0, 0)
-    transactions.value = transactionStore.transactions.filter(t => {
+    transactions.value = transactionStore.transactions.filter((t: Transaction) => {
       const transactionDate = new Date(t.date)
       return transactionDate >= today
     })

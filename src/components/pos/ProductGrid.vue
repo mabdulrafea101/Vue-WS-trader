@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Product } from '@/types'
+import type { Product } from '../../types'
 import ProductCard from './ProductCard.vue'
 
 const products = ref<Product[]>([

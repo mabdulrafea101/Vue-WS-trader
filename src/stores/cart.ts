@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { CartItem, Product } from '@/types'
+import type { CartItem, Product } from '../types'
 
 interface CartState {
   items: CartItem[]

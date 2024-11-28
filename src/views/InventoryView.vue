@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Product } from '@/types'
+import type { Product } from '../types'
 
 const inventory = ref<Product[]>([
   { id: 1, name: 'Product 1', price: 9.99, category: 'Category 1', stock: 10 },

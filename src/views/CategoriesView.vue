@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Category } from '@/types'
+import type { Category } from '../types'
 
 const categories = ref<Category[]>([
   { id: 1, name: 'Category 1', description: 'Description 1' },

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import api from '@/api'
-import type { Transaction } from '@/types'
+import api from '../api'
+import type { Transaction } from '../types'
 
 interface TransactionState {
   transactions: Transaction[]

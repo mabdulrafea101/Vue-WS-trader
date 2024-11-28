@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import api from '@/api'
-import type { Category } from '@/types'
+import api from '../api'
+import type { Category } from '../types'
 
 interface CategoryState {
   categories: Category[]

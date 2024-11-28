@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useTransactionStore } from '@/stores/transaction'
+import { useTransactionStore } from '../stores/transaction'
 
-import type { Transaction } from '@/types'
+import type { Transaction } from '../types'
 import TodayTransactions from '../components/dashboard/TodayTransactions.vue'
 
 
@@ -22,14 +22,14 @@ onMounted(async () => {
     await transactionStore.fetchTransactions()
     // Calculate stats from transactions
     const transactions = transactionStore.transactions
-    stats.value.totalSales = transactions.reduce((sum, t) => sum + t.total, 0)
-    stats.value.totalExpenses = transactions.reduce((sum, t) => sum + (t.expenses || 0), 0)
+    stats.value.totalSales = transactions.reduce((sum: number, t: Transaction) => sum + t.total, 0)
+    stats.value.totalExpenses = transactions.reduce((sum: number, t: Transaction) => sum + (t.expenses || 0), 0)
     stats.value.profit = stats.value.totalSales - stats.value.totalExpenses
     
     // Filter today's transactions
     const today = new Date()
     today.setHours(0, 0, 0, 0)
-    todayTransactions.value = transactions.filter(t => {
+    todayTransactions.value = transactions.filter((t: Transaction) => {
       const transactionDate = new Date(t.date)
       return transactionDate >= today
     })
@@ -108,6 +108,6 @@ onMounted(async () => {
 
     <!-- Today's Transactions -->
 
-    <TodayTransactions @transactions="todayTransactions" />
+    <TodayTransactions :transactions="todayTransactions" />
   </div>
 </template>

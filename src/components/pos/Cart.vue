@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { CartItem, Product, Transaction } from '@/types'
-import { useTransactionStore } from '@/stores/transaction'
+import type { CartItem, Transaction } from '../../types'
+import { useTransactionStore } from '../../stores/transaction'
 import PaymentModal from './PaymentModal.vue'
 import Invoice from './Invoice.vue'
 
@@ -17,14 +17,6 @@ const total = computed(() => {
   return cart.value.reduce((sum, item) => sum + item.quantity * item.product.price, 0)
 })
 
-const addToCart = (product: Product) => {
-  const existingItem = cart.value.find(item => item.product.id === product.id)
-  if (existingItem) {
-    existingItem.quantity++
-  } else {
-    cart.value.push({ product, quantity: 1 })
-  }
-}
 
 const removeFromCart = (itemId: number) => {
   cart.value = cart.value.filter(item => item.product.id !== itemId)
@@ -35,16 +27,19 @@ const checkout = async () => {
 
   try {
     const transaction = await transactionStore.createTransaction({
-      items: cart.value,
-      total: total.value,
-      paid_amount: 0,
-      remaining_amount: total.value,
-      customer_name: customerName.value,
-      customer_phone: customerPhone.value,
-      status: 'completed',
-      payment_status: 'unpaid',
-      payments: []
-    })
+  items: cart.value,
+  total: total.value,
+  paid_amount: 0,
+  remaining_amount: total.value,
+  customer_name: customerName.value,
+  customer_phone: customerPhone.value,
+  status: 'completed',
+  payment_status: 'unpaid',
+  payments: [],
+  created_at: new Date().toISOString(),
+  updated_at: new Date().toISOString()
+}
+)
 
     currentTransaction.value = transaction
     showPaymentModal.value = true
@@ -74,6 +69,8 @@ const handlePayment = async (payment: { amount: number; payment_method: string; 
   }
 }
 </script>
+
+
 
 <template>
   <div class="bg-white rounded-lg shadow-md p-4 dark:bg-gray-800">

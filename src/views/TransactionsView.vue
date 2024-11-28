@@ -1,16 +1,41 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Transaction } from '@/types'
+import type { Transaction } from '../types'
 
 const transactions = ref<Transaction[]>([
   {
-    id: 1,
-    items: [
-      { product: { id: 1, name: 'Product 1', price: 9.99, category: 'Category 1', stock: 10 }, quantity: 2 }
-    ],
-    total: 19.98,
-    date: new Date()
-  }
+  id: 1,
+  items: [
+    { product: { id: 1, name: 'Product 1', price: 9.99, category: 'Category 1', stock: 10 }, quantity: 2 }
+  ],
+  total: 19.98,
+  date: new Date().toLocaleString(),
+  paid_amount: 0,
+  remaining_amount: 19.98,
+  customer_name: '',
+  customer_phone: '',
+  status: 'completed',
+  payment_status: 'unpaid',
+  payments: [],
+  created_at: new Date().toLocaleString(),
+  updated_at: new Date().toLocaleString()
+}, {
+  id: 2,
+  items: [
+    { product: { id: 1, name: 'Product 1', price: 9.99, category: 'Category 1', stock: 10 }, quantity: 3 }
+  ],
+  total: 29.97,
+  date: new Date().toLocaleString(),
+  paid_amount: 0,
+  remaining_amount: 29.97,
+  customer_name: '',
+  customer_phone: '',
+  status:'completed',
+  payment_status: 'unpaid',
+  payments: [],
+  created_at: new Date().toLocaleString(),
+  updated_at: new Date().toLocaleString()
+}
 ])
 </script>
 

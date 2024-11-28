@@ -2,15 +2,20 @@
 import { ref } from 'vue'
 import ProductGrid from '../components/pos/ProductGrid.vue'
 import Cart from '../components/pos/Cart.vue'
-import type { Product } from '@/types'
+import type { Product } from '../types'
 
-const cartRef = ref<InstanceType<typeof Cart> | null>(null)
+// Define the type for the Cart component instance
+type CartInstance = InstanceType<typeof Cart> & {
+  addToCart: (product: Product) => void
+}
+const cartRef = ref<CartInstance | null>(null)
 const customerName = ref('')
 const customerPhone = ref('')
 
 const handleAddToCart = (product: Product) => {
   cartRef.value?.addToCart(product)
 }
+
 </script>
 
 <template>
