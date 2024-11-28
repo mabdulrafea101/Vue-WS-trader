@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.46.2",
     "axios": "^1.6.7",
     "chart.js": "^4.4.6",
     "flowbite": "^2.3.0",
